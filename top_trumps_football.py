@@ -1,7 +1,7 @@
 import csv
 import random
 
-with open('Top Trumps - Skyscrapers.csv', mode ='r') as file:
+with open('players.csv', mode ='r') as file:
   csvFile = csv.DictReader(file)
   all_cards = list(csvFile)
 
@@ -29,7 +29,7 @@ def display_card(card):
   for keys in card:
     print(keys, (max_chars-len(keys))*' ', ': ', card[keys])
   
-def determine_winner(m1, m2, order = 1):
+def determine_winner(m1, m2, order=1):
   # Explain why this concise code is useful
   dct = {'player': m1, 'computer': m2}
   v = list(dct.values())
@@ -105,10 +105,9 @@ while not game_over:
   
   print('Key of interest is ', key_requested)
 
-  if chosen_key in ['H','F', 'B']:
+  if chosen_key in ['O','S', 'Pa','P','Dr','De']:
     winner = determine_winner(float(value_player), float(value_comput)); 
-  else:
-    winner = determine_winner(float(value_player), float(value_comput), 0); 
+  
     
   
   print('Player ', key_requested, 'is', value_player)
