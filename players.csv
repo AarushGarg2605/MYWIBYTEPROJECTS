@@ -1,4 +1,4 @@
-Name,Country,Overall,Pace,Shooting,Passing,Dribbling,Defense
+Name,Country,Overall(O),Pace(P),Shooting(S),Passing(A),Dribbling(R),Defense(D)
 Lionel Messi,Argentina,93,85,92,91,95,40
 Cristiano Ronaldo,Portugal,91,87,93,82,88,45
 Kylian Mbappé,France,92,97,89,80,94,40
@@ -11,97 +11,35 @@ Luka Modrić,Croatia,88,72,78,89,86,65
 Sergio Ramos,Spain,88,74,70,78,75,90
 Erling Haaland,Norway,90,89,92,75,82,50
 Harry Kane,England,89,74,91,84,82,48
-Paulo Dybala,Argentina,87,85,86,83,90,40
 Joshua Kimmich,Germany,88,72,78,89,84,80
-Trent Alexander-Arnold,England,87,78,70,90,82,75
 Bruno Fernandes,Portugal,88,77,84,89,86,65
-Raheem Sterling,England,86,91,82,80,88,45
 Karim Benzema,France,89,78,90,84,85,50
-Eden Hazard,Belgium,87,88,84,83,90,40
-Gerard Piqué,Spain,86,65,60,75,70,88
-Toni Kroos,Germany,88,60,75,90,80,70
 Casemiro,Brazil,88,70,72,78,76,88
 Andrew Robertson,Scotland,87,85,65,80,82,85
-Alisson Becker,Brazil,90,50,40,70,60,88
 Jan Oblak,Slovenia,91,45,35,70,55,90
-Manuel Neuer,Germany,89,50,40,75,60,88
-Marc-André ter Stegen,Germany,89,48,38,74,58,87
 Thibaut Courtois,Belgium,90,46,36,72,57,89
-Ederson,Brazil,89,52,42,78,62,85
-Hugo Lloris,France,88,47,37,73,59,86
-Keylor Navas,Costa Rica,87,48,38,72,58,85
-Gianluigi Donnarumma,Italy,88,49,39,74,60,87
-David de Gea,Spain,87,47,37,73,59,85
-Mats Hummels,Germany,86,65,55,75,70,88
-Aymeric Laporte,Spain,86,68,58,76,72,87
-Kalidou Koulibaly,Senegal,87,70,60,74,68,89
+Manuel Neuer,Germany,89,50,40,75,60,88
 Raphaël Varane,France,87,75,62,76,70,88
 Marquinhos,Brazil,87,74,61,77,71,88
 João Cancelo,Portugal,87,84,68,82,85,80
-Kyle Walker,England,86,90,65,78,82,82
 Achraf Hakimi,Morocco,86,92,70,80,85,78
-Theo Hernández,France,85,91,68,78,84,77
-Antonio Rüdiger,Germany,86,78,60,74,70,87
-Leonardo Bonucci,Italy,85,65,55,74,68,86
-Giorgio Chiellini,Italy,85,62,52,72,65,88
-César Azpilicueta,Spain,84,70,55,75,72,85
-Jordi Alba,Spain,85,88,65,78,84,80
-Dani Carvajal,Spain,85,82,64,77,82,82
-Miralem Pjanić,Bosnia,84,68,72,85,80,70
-Christian Eriksen,Denmark,85,70,78,86,82,65
-Marco Verratti,Italy,86,72,70,87,84,68
 N’Golo Kanté,France,88,78,65,80,82,90
 Paul Pogba,France,86,74,80,85,84,70
-Rodri,Spain,86,70,72,84,78,85
-Fabinho,Brazil,86,68,70,82,76,86
-Jordan Henderson,England,85,70,72,83,78,82
-Ilkay Gündogan,Germany,85,72,74,84,80,75
 Bernardo Silva,Portugal,87,82,78,86,90,60
 Phil Foden,England,85,86,80,84,88,55
-Mason Mount,England,84,82,78,83,86,60
-Kai Havertz,Germany,84,80,79,82,85,58
-Jadon Sancho,England,85,87,80,82,89,50
-Marcus Rashford,England,85,89,82,80,87,55
-João Félix,Portugal,84,86,81,82,88,52
-Ansu Fati,Spain,83,88,80,78,87,48
 Pedri,Spain,85,82,74,86,88,60
-Gavi,Spain,84,80,72,84,86,58
 Frenkie de Jong,Netherlands,86,78,72,85,84,70
-Memphis Depay,Netherlands,85,84,82,82,87,55
-Hakim Ziyech,Morocco,84,78,80,84,85,50
-Riyad Mahrez,Algeria,85,80,82,84,88,48
 Sadio Mané,Senegal,89,92,85,82,90,55
-Thomas Müller,Germany,86,75,84,82,82,65
 Kingsley Coman,France,85,90,80,80,88,50
 Serge Gnabry,Germany,85,88,82,80,87,52
-Leroy Sané,Germany,85,90,83,80,88,50
-Timo Werner,Germany,84,91,82,78,85,48
-Ciro Immobile,Italy,86,80,88,78,82,50
-Edin Džeko,Bosnia,84,72,85,76,80,48
-Zlatan Ibrahimović,Sweden,85,70,88,78,82,45
-Olivier Giroud,France,83,68,82,76,78,50
-Pierre-Emerick Aubameyang,Gabon,85,90,84,78,86,48
-Alexandre Lacazette,France,84,78,82,76,82,50
-Romelu Lukaku,Belgium,86,82,86,76,82,52
-Tammy Abraham,England,83,82,80,74,80,48
-Gabriel Jesus,Brazil,84,85,82,76,86,50
-Richarlison,Brazil,84,84,81,74,84,52
 Vinícius Jr,Brazil,86,94,80,78,92,45
-Rodrygo,Brazil,84,88,78,76,86,48
 Antoine Griezmann,France,86,80,84,82,86,55
 Ángel Di María,Argentina,85,85,82,82,88,50
-Carlos Tévez,Argentina,84,78,84,76,84,52
-Gonzalo Higuaín,Argentina,84,74,84,76,82,50
-Mauro Icardi,Argentina,84,76,84,74,82,48
-Edinson Cavani,Uruguay,85,78,85,74,82,50
 Luis Suárez,Uruguay,87,74,88,78,84,48
-Diego Forlán,Uruguay,85,76,86,74,82,50
 Fernando Torres,Spain,86,84,86,76,84,48
 David Villa,Spain,87,80,88,78,84,50
-Raúl González,Spain,87,78,86,78,82,52
 Xavi Hernández,Spain,90,70,78,94,88,65
 Andrés Iniesta,Spain,90,72,76,93,90,60
 Ronaldinho,Brazil,91,88,86,90,95,45
-Ronaldo Nazário,Brazil,93,89,96,91,92,55
+Ronaldo Nazário,Brazil,92,89,96,91,92,55
 Paolo Maldini,Italy,85,82,79,89,87,94
-Roberto Carlos,Brazil,92,89,95,87,86,93

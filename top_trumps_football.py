@@ -6,8 +6,24 @@ with open('players.csv', mode ='r') as file:
   all_cards = list(csvFile)
 
 
+def Training():
+  display_best__card()
 
-print("Welcome to the Top Trumps Game, Skyscrapers theme")
+def display_best__card():
+  # Display the best card for each attribute
+  # The best card is the one with the highest value for that attribute
+
+  print('Best cards for each attribute are:')
+  print()
+
+  for key in relevant_keys:
+    best_card = max(all_cards, key=lambda x: float(x[key]))
+    print(key, ': ', best_card[key], ' (', best_card['Name'], ')') 
+  input('Press Enter to continue')
+    
+
+
+print("Welcome to the Top Trumps Game, Football theme")
 print('Make your choices wisely and try to win all the cards')
 print('Click Enter to begin')
 
@@ -17,8 +33,7 @@ input()
 
 
 def display_card(card):
-  # Display the attributes of a card
-  # A card is a dictionary with several attributes
+  
 
   max_chars = 0
   
@@ -30,7 +45,7 @@ def display_card(card):
     print(keys, (max_chars-len(keys))*' ', ': ', card[keys])
   
 def determine_winner(m1, m2, order=1):
-  # Explain why this concise code is useful
+  
   dct = {'player': m1, 'computer': m2}
   v = list(dct.values())
   k = list(dct.keys())
@@ -42,7 +57,16 @@ def determine_winner(m1, m2, order=1):
       return k[v.index(max(v))]
     else:
       return k[v.index(min(v))]
-    
+
+
+def category_rank(test_card, category):
+  global rank
+  metric = [float(card[mapping_dict[category]])for card in all_cards]      
+  if category in ['O','S', 'Pa','P','Dr','D']:
+    metric_sorted =  sorted(metric, reverse=True)
+  rank = metric_sorted.index(float(test_card[mapping_dict[category]])) + 1
+  return rank
+  
 
 random.shuffle(all_cards)
 
@@ -52,15 +76,10 @@ table_cards = []
 game_over = False
 chance = 'player'
 
-# We need an identfier for each of the meaninful attributes
-#
-# We can create a new dictionary
+
 relevant_keys = list(all_cards[0].keys())
 relevant_keys = relevant_keys[2::]
 
-# Create a mapping dictionary
-# Short Cut : Long Key
-# for every key in the keys
 mapping_dict = {}
 
 for key in relevant_keys:
@@ -68,7 +87,10 @@ for key in relevant_keys:
 
 input()
 
+training = input('Do you want to have a  training mode? (y/n)')
 
+if training == 'Y'or training == 'y':
+ Training()
 
 
 while not game_over:
@@ -90,34 +112,39 @@ while not game_over:
   print()
 
   if chance == 'player':
-    # Determine which attribute
+    
     chosen_key = input('What is your choice?')
+    if chosen_key not in list(mapping_dict.keys()):
+      print('Invalid choice, computer will choose for you')
+      chosen_key = random.choice(list(mapping_dict.keys()))
     chance = 'computer'    
 
   else:
-    # Choose a random attribute from the mapping directory
+    
     chosen_key = random.choice(list(mapping_dict.keys()))
     chance = 'player'
-
   key_requested = mapping_dict[chosen_key]
   value_player = player[key_requested]
   value_comput = comput[key_requested]
   
   print('Key of interest is ', key_requested)
 
-  if chosen_key in ['O','S', 'Pa','P','Dr','De']:
+  if chosen_key in ['O','S', 'P','A','R','D']:
     winner = determine_winner(float(value_player), float(value_comput)); 
+
+    
   
     
   
-  print('Player ', key_requested, 'is', value_player)
-  print('Computer ', key_requested, 'is', value_comput)
+  player_rank = category_rank(player, chosen_key)
+  computer_rank = category_rank(comput, chosen_key)
+  print('Player ', key_requested, 'is', value_player,'(rank = ', player_rank, ')')
+  print('Computer ', key_requested, 'is', value_comput,'(rank = ', computer_rank, ')')
   print()
   print('Winner is ... ', winner)
   input()
 
-  # Re-distribute the cards
-  # Notice, in case of DRAW, noone takes the cards. 
+ 
 
   if winner == 'player':
     player_cards.extend(table_cards)
