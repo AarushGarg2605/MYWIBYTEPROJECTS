@@ -62,7 +62,7 @@ def determine_winner(m1, m2, order=1):
 def category_rank(test_card, category):
   global rank
   metric = [float(card[mapping_dict[category]])for card in all_cards]      
-  if category in ['O','S', 'Pa','P','Dr','D']:
+  if category in ['O','S', 'P','A','R','D']:
     metric_sorted =  sorted(metric, reverse=True)
   rank = metric_sorted.index(float(test_card[mapping_dict[category]])) + 1
   return rank
