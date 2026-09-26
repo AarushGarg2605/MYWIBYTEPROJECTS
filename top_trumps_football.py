@@ -159,3 +159,8 @@ while not game_over:
   elif len(comput_cards) == 0:
     print('Player Won')
     game_over = True
+#bonus ideas added -
+# 1- Add a training mode that displays the best card for each attribute
+# 2- Add a ranking system that shows the rank of the player's and computer's card for the chosen attribute
+# 3- Added a failsafe for invalid input from the player when choosing an attribute, and the computer will choose a random attribute instead
+#  
