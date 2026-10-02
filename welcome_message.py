@@ -93,19 +93,7 @@ def deep_validate(prelimdata):
     if prelimdata['ns'] > threshold_ns or len(prelimdata['sc']) > threshold_sc:
         raise ValueError("Your power is unstable...")
 
-def luck_validate():
-    roll = random.randint(1, 6)
-    print(f" Luck roll: {roll}")
-    if roll <= 2:
-        raise ValueError("Bad luck struck!")
 
-def time_validate():
-    start = time.time()
-    time.sleep(random.uniform(0.1, 0.5))  # simulate delay
-    elapsed = time.time() - start
-    print(f" Time taken: {elapsed:.2f} seconds")
-    if elapsed > 0.4:
-        raise ValueError("You were too slow!")
 
 # --- Final Boss Stage ---
 def final_boss():
