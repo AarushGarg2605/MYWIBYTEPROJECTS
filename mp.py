@@ -3,7 +3,8 @@ import time
 print("Welcome to the game! ")
 print('This is a fusion of what all we have learnt so far in this course. ')
 print('Reach the green square to play the laptop store game, reach the red square to play the fractals game, reach the yellow square to play the welcome message game and reach the purple square to play the top trumps game. ')
-
+print('Open the turtle window and use the arrow keys to move the turtle. ')
+input('Press Enter to start the game')
 t = turtle.Turtle()
 t.showturtle()
 t.shape('square')
@@ -54,33 +55,35 @@ ts.listen()
 t.speed(0)
 doorway.hideturtle()
 
-gameover = False
+tgame = False
 laptopstore = False
 fractals = False
 welcome_message = False
 top_trumps = False
-while not gameover:
+while not tgame:
     t.forward(1)
-
+    time.sleep(0.001)
     if t.distance(270, 270) < 45:
         laptopstore = True
-        gameover = True
+        tgame = True
     elif t.distance(-270, 270) < 45:
         fractals = True
-        gameover = True
+        tgame = True
     elif t.distance(-270, -270) < 45:
         welcome_message = True
-        gameover = True
+        tgame = True
     elif t.distance(270, -270) < 45:
         top_trumps = True
-        gameover = True
+        tgame = True
 
 
-ts.bye()
 
-    
+doorway.clear()
+t.clear() 
+t.hideturtle()
 
-ts.mainloop() 
+
+
 import random 
 
 try:
@@ -92,6 +95,10 @@ except ImportError:
             return ''
 
       Fore = _NoColour()
+print()
+print()
+print()
+print()
 
 if laptopstore == True:
         print("You have reached the phone store !")
@@ -387,12 +394,267 @@ elif fractals == True:
 
     branch(100, 9)
 
-    # =========================
-    # Finish
-    # =========================
+    ts.mainloop() 
+
+   
 
     turtle.done()
 elif welcome_message == True:
     print("You have reached the welcome message game!")
+    import time
+    import random
+
+    # --- Short Form Creation ---
+    def short_form(idx, *names, **addons):
+        final = ''
+        try:
+            # Build short form from names
+            for name in names:
+                final += name[idx]
+
+            # Add prefix/suffix if provided
+            for keys in addons:
+                if keys == 'prefix':
+                    final = addons[keys] + final
+                elif keys == 'suffix':
+                    final = final + addons[keys]
+                else:
+                    print('You are not good at typing, are you ...')
+
+            # --- Time Validation ---
+            current_second = int(time.time()) % 60
+            if current_second % 2 == 0:
+                print(" The clock favors you...")
+            else:
+                raise Exception(" The sands of time resist you...")
+
+            # --- Luck Validation ---
+            roll = random.randint(1, 10)
+            if roll > 5:
+                print(" Fortune smiles upon you...")
+            else:
+                raise Exception(" Luck has abandoned you...")
+
+        except TypeError as e:
+            print('Wrong data type: ', e)
+        except IndexError as e:
+            print('Indexing is going wrong:', e)
+        except Exception as e:
+            print('Validation failed:', e)
+        else:
+            return final
+        finally:
+            print("Hope you managed to pass this stage ...")
+
+    # --- Name Strength Calculation ---
+    strength = {'name':10, 'surname':20, 'nickname':30, 'alias':40, 'aka':50}
+
+    def name_strength(**fullname):
+        result = 0
+        try:
+            for key, value in fullname.items():
+                result += strength[key] * len(value)
+        except KeyError as e:
+            print(" You invoked forbidden fields:", e)
+        else:
+            return result
+
+    # --- Validation Trials ---
+    def validate(**prelimdata):
+        try:
+            assert prelimdata['sc'] is not None
+            assert prelimdata['ns'] is not None
+        except KeyError as e:
+            print(" You dropped the scrolls of data...")
+            print("Validation failed due to", e)
+        except AssertionError:
+            print(" One of the earlier steps has gone wrong.")
+            print("Validation failed.")
+        else:
+            print(" Looking good so far...")
+            print("Sending for deeper validation...")
+            print(" Opening connection to the Oracle server...")
+            try:
+                deep_validate(prelimdata)
+                luck_validate()
+                time_validate()
+                final_boss()
+            except ValueError as e:
+                print(" The Oracle rejects you:", e)
+                print("Validation failed.")
+            else:
+                print(" Congrats, hero! Validation Successful.")
+                print("Welcome to the Den of Coders!")
+            finally:
+                print(" Closing connection to the Oracle server")
+
+    def deep_validate(prelimdata):
+        print(" The Oracle studies your scrolls:", prelimdata)
+        threshold_ns = random.randint(1, 200)
+        threshold_sc = random.randint(10, 20)
+        print(f" Thresholds: ns={threshold_ns}, sc={threshold_sc}")
+        if prelimdata['ns'] > threshold_ns or len(prelimdata['sc']) > threshold_sc:
+            raise ValueError("Your power is unstable...")
+
+
+
+    # --- Final Boss Stage ---
+    def final_boss():
+        riddles = {
+            "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?": "echo",
+            "The more you take, the more you leave behind. What am I?": "footsteps",
+            "I’m always running but never move. You can’t see me but you can feel me. What am I?": "time"
+        }
+        riddle, answer = random.choice(list(riddles.items()))
+        print(" The Final Boss appears!")
+        print(" Riddle of the Oracle:")
+        print(riddle)
+        user_answer = input("Your answer, adventurer: ").strip().lower()
+        if user_answer != answer:
+            raise ValueError("The riddle defeated you...")
+        else:
+            print(" You solved the riddle! The Oracle bows to your wisdom.")
+
+    # --- Storyline Intro ---
+    print(" Welcome, brave coder, to the Programmers' Den!")
+    print("Your quest: forge your identity, prove your strength, and survive the trials of validation...")
+    print()
+    print(" Step 1: Create a short code → sc = short_form(idx, words..., prefix= , suffix= )")
+    print(" Step 2: Measure your name strength → ns = name_strength(name= , surname= , aka= , alias= )")
+    print(" Step 3: Face the Oracle → validate(sc=sc, ns=ns)")
+    print()
+    print("Good luck, adventurer...")
+
+
+
 elif top_trumps == True:
     print("You have reached the top trumps game!")
+    import csv
+    import random
+
+    # Load player data
+    with open('players.csv', mode='r') as file:
+        csvFile = csv.DictReader(file)
+        all_cards = list(csvFile)
+
+    # Explicit mapping for shorthand keys
+    mapping_dict = {
+        'O': 'Overall(O)',
+        'P': 'Pace(P)',
+        'S': 'Shooting(S)',
+        'A': 'Passing(A)',     
+        'R': 'Dribbling(R)', 
+        'D': 'Defense(D)'
+    }
+
+    # Training mode
+    def Training():
+        display_best_card()
+
+    def display_best_card():
+        print('Best cards for each attribute are:\n')
+        for key in mapping_dict.values():
+            best_card = max(all_cards, key=lambda x: float(x[key]))
+            print(key, ': ', best_card[key], ' (', best_card['Name'], ')')
+        input('Press Enter to continue')
+
+    # Display card neatly
+    def display_card(card):
+        max_chars = max(len(keys) for keys in card)
+        for keys in card:
+            print(keys, (max_chars - len(keys)) * ' ', ': ', card[keys])
+
+    # Determine winner
+    def determine_winner(m1, m2, order=1):
+        dct = {'player': m1, 'computer': m2}
+        v = list(dct.values())
+        k = list(dct.keys())
+        if m1 == m2:
+            return 'draw'
+        else:
+            if order == 1:
+                return k[v.index(max(v))]
+            else:
+                return k[v.index(min(v))]
+
+    # Rank system
+    def category_rank(test_card, category):
+        global rank
+        metric = [float(card[mapping_dict[category]]) for card in all_cards]
+        metric_sorted = sorted(metric, reverse=True)
+        rank = metric_sorted.index(float(test_card[mapping_dict[category]])) + 1
+        return rank
+
+    # Shuffle and distribute cards
+    random.shuffle(all_cards)
+    comput_cards = all_cards[0::2]
+    player_cards = all_cards[1::2]
+    table_cards = []
+    game_over = False
+    chance = 'player'
+
+    print("Welcome to the Top Trumps Game, Football theme")
+    print('Make your choices wisely and try to win all the cards')
+    print('Click Enter to begin')
+    input()
+
+    # Training mode option
+    training = input('Do you want to have a training mode? (y/n): ')
+    if training.lower() == 'y':
+        Training()
+
+    # Main game loop
+    while not game_over:
+        print('Player cards:', len(player_cards), 
+            'Computer cards:', len(comput_cards), 
+            'Table cards:', len(table_cards))
+        
+        player = player_cards.pop(0)
+        comput = comput_cards.pop(0)
+        table_cards.extend([player, comput])
+
+        print(f"\nIt is now {chance}'s turn\n")
+        print('Your (Player) card is:')
+        display_card(player)
+        print()
+
+        if chance == 'player':
+            chosen_key = input('Choose a category (O, P, S, A, R, D): ').upper()
+            if chosen_key not in mapping_dict:
+                print('Invalid choice, computer will choose for you')
+                chosen_key = random.choice(list(mapping_dict.keys()))
+            chance = 'computer'
+        else:
+            chosen_key = random.choice(list(mapping_dict.keys()))
+            print(f'Computer chose {chosen_key}')
+            chance = 'player'
+
+        key_requested = mapping_dict[chosen_key]
+        value_player = player[key_requested]
+        value_comput = comput[key_requested]
+
+        print('Key of interest is', key_requested)
+
+        winner = determine_winner(float(value_player), float(value_comput))
+
+        player_rank = category_rank(player, chosen_key)
+        computer_rank = category_rank(comput, chosen_key)
+
+        print(f'Player {key_requested} is {value_player} (rank = {player_rank})')
+        print(f'Computer {key_requested} is {value_comput} (rank = {computer_rank})\n')
+        print('Winner is ...', winner)
+        input()
+
+        if winner == 'player':
+            player_cards.extend(table_cards)
+            table_cards.clear()
+        elif winner == 'computer':
+            comput_cards.extend(table_cards)
+            table_cards.clear()
+
+        if len(player_cards) == 0:
+            print('Computer Won')
+            game_over = True
+        elif len(comput_cards) == 0:
+            print('Player Won')
+            game_over = True 

@@ -86,7 +86,7 @@ def validate(**prelimdata):
             print(" Closing connection to the Oracle server")
 
 def deep_validate(prelimdata):
-    print("📜 The Oracle studies your scrolls:", prelimdata)
+    print(" The Oracle studies your scrolls:", prelimdata)
     threshold_ns = random.randint(1, 200)
     threshold_sc = random.randint(10, 20)
     print(f" Thresholds: ns={threshold_ns}, sc={threshold_sc}")
